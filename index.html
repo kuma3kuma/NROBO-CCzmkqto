@@ -44,10 +44,19 @@
                     class="clickable"
                     gesture-handler
                 ></a-entity>
-                <a-sound src="#audio-asset" autoplay="true"></a-sound>
+                <a-sound id="marker-sound" src="#audio-asset"></a-sound>
             </a-marker>
 
             <a-entity camera></a-entity>
         </a-scene>
+
+        <script>
+            document.addEventListener('click', function () {
+                const soundEntity = document.querySelector('#marker-sound');
+                if (soundEntity) {
+                    soundEntity.components.sound.playSound();
+                }
+            });
+        </script>
     </body>
 </html>
